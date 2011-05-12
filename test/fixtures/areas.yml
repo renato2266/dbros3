@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  area_criminale: MyString
+  note_area: MyText
+  ambit_id: 1
+
+two:
+  area_criminale: MyString
+  note_area: MyText
+  ambit_id: 1

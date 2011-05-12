@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Area criminale:</b>
+  <%= @area.area_criminale %>
+</p>
+
+<p>
+  <b>Note area:</b>
+  <%= @area.note_area %>
+</p>
+
+<p>
+ Ambito criminale:
+  <b> <%= @ambit.ambito_criminale%></b>
+
+</p>
+
+
+<%= link_to 'Edit', edit_area_path(@area) %> |
+<%= link_to 'Back', areas_path %>

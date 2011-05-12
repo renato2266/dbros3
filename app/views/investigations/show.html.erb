@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Indagine:</b>
+  <%= @investigation.indagine %>
+</p>
+
+<p>
+  <b>Reparto:</b>
+  <%= @investigation.reparto %>
+</p>
+
+<p>
+  <b>Data inizio:</b>
+  <%= @investigation.data_inizio %>
+</p>
+
+<p>
+  <b>Data fine:</b>
+  <%= @investigation.data_fine %>
+</p>
+
+<p>
+  <b>Note indagine:</b>
+  <%= @investigation.note_indagine %>
+</p>
+
+<p>
+  <b>Soggetti indagati: </b>
+<ul>
+  <% @names.each do |name| %>
+    <li><%= link_to name.cognome_nome, :controller => :names, :action => :show, :id => name.id %></li>
+  <% end %>
+</ul>
+</p>
+
+
+<%= link_to 'Edit', edit_investigation_path(@investigation) %> |
+<%= link_to 'Back', investigations_path %>

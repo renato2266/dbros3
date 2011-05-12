@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Numero:</b>
+  <%= @fascicle.numero %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @fascicle.note %>
+</p>
+
+
+<b>Elenco soggetti</b>
+<ul>
+    <% @names.each do |name| %>
+      <li><%= link_to name.cognome_nome, :controller => :names, :action => :show, :id => name.id %></li>
+    <% end %>
+  </ul>
+
+<b>Associazioni</b>
+<ul>
+    <% @unions.each do |union| %>
+      <li><%= link_to union.denominazione, :controller => :unions, :action => :show, :id => union.id %></li>
+    <% end %>
+  </ul>
+
+<b>Ass. crim.</b>
+<ul>
+    <% @associations.each do |association| %>
+      <li><%= link_to association.associazione_criminale, :controller => :associations, :action => :show, :id => association.id %></li>
+    <% end %>
+  </ul>
+
+
+
+
+<%= link_to 'Edit', edit_fascicle_path(@fascicle) %> |
+<%= link_to 'Back', fascicles_path %>

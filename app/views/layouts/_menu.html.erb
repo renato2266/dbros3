@@ -1,0 +1,66 @@
+
+
+	
+	<ul class="links">
+		<h2 align= "center"><%= link_to "Home", home_index_path %></h2>				        
+	</ul>
+	
+	<ul class="links">
+	<h3> Index </h3>
+				<%= link_to "Anagrafica", names_path %>
+				<%= link_to "Associazioni", unions_path %>
+				<%= link_to "Documenti", dossiers_path %>
+				<%= link_to "Fascicoli", fascicles_path %>
+				<%= link_to "Gallery", galleries_path %>
+				<%= link_to "Indagini", investigations_path%>
+            </ul>
+            
+            
+            <ul class="links">
+	<h3> Search </h3>
+				<%= link_to "Search names", names_search_path %>	
+  	</ul>
+            
+            
+    <ul class="links">
+	<h3> Admin </h3>
+				<%= link_to "Area crim.", areas_path %>
+				<%= link_to "Ass. crim.", associations_path %>
+				<%= link_to "Ambito crim.", ambits_path %>	
+  </ul>
+
+
+	<ul class="links">
+	<h3> Login </h3>
+	<div>
+  	<% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Logout user", destroy_user_session_path %>
+  	<% else  %>
+    <%= link_to "Login user", new_user_session_path %>
+  	<% end %>
+  	
+  	<% if admin_signed_in? %>
+    Signed in as <%= current_admin.email %>. Not you?
+    <%= link_to "Logout admin", destroy_admin_session_path %>
+  	<% else  %>
+    <%= link_to "Login admin", new_admin_session_path %>
+  	<% end %>
+  	<% if admin_signed_in? %>
+  	<%= link_to "crea utente", new_user_registration_path %> 
+  	<%end%>
+  	
+	</div>
+			 
+	</ul>
+
+
+	<ul class="links">
+			         
+		
+	</ul>
+    
+
+<ul>
+	
+ 

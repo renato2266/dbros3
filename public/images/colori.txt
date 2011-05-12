@@ -1,0 +1,21 @@
+text Sans 24
+
+angoli 10,5
+
+GAllery 006600
+
+Anagrafica fb8405
+
+Docomenti c1bf00
+
+Fascicoli 494941
+
+Associazioni 1658d0
+
+Società a21919
+
+Veicoli c17a00
+
+Indagini 79b779
+
+Intercettazioni dc1414

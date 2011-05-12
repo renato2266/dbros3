@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  indagine: MyString
+  reparto: MyString
+  data_inizio: 2011-04-06
+  data_fine: 2011-04-06
+  note_indagine: MyText
+
+two:
+  indagine: MyString
+  reparto: MyString
+  data_inizio: 2011-04-06
+  data_fine: 2011-04-06
+  note_indagine: MyText

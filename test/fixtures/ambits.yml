@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ambito_criminale: MyString
+  note_ambito: MyText
+
+two:
+  ambito_criminale: MyString
+  note_ambito: MyText

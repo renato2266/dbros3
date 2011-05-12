@@ -1,0 +1,187 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+<th>Generalità</th>
+<th> Foto</th>
+
+<tr>
+<td>
+<p>
+  <b>Cognome nome:</b>
+  <%= @name.cognome_nome %>
+</p>
+
+<p>
+  <b>Luogo nascita:</b>
+  <%= @name.luogo_nascita %>
+</p>
+
+<p>
+  <b>Data nascita:</b>
+  <%= @name.data_nascita %>
+</p>
+
+<p>
+  <b>Cod fiscale:</b>
+  <%= @name.cod_fiscale %>
+</p>
+
+<p>
+  <b>Residenza:</b>
+  <%= @name.residenza %>
+</p>
+
+<p>
+  <b>Via:</b>
+  <%= @name.via %>
+</p>
+
+<p>
+  <b>Domicilio:</b>
+  <%= @name.domicilio %>
+</p>
+
+<p>
+  <b>Cittadinanza:</b>
+  <%= @name.cittadinanza %>
+</p>
+
+<p>
+  <b>Professione:</b>
+  <%= @name.professione %>
+</p>
+
+<p>
+  <b>Soprannome:</b>
+  <%= @name.soprannome %>
+</p>
+
+<p>
+  <b>Alias:</b>
+  <%= @name.alias %>
+</p>
+
+
+<p>
+  Association:
+   <% if @association.nil? %>
+          Nil!
+        <% else %>
+          <b> <%=h @association.associazione_criminale %></b>
+        <%end%>
+</p>
+
+<p>
+  Ambito criminale :
+        <% if @ambit.nil? %>
+          Nil!
+        <% else %>
+          <b> <%=h @ambit.ambito_criminale %></b>
+        <%end%>
+</p>
+
+Area :
+        <% if @area.nil? %>
+          Nil!
+        <% else %>
+          <b> <%=h @area.area_criminale %></b>
+        <%end%>
+      </p>
+      
+      <p>
+      
+      <p>
+	<% if @fascicles.nil? %>
+      Nil!
+    <% else %>
+
+	<% @fascicles.each do |fascicle| %>
+	Numero fascicolo:
+      <%= link_to fascicle.numero, :controller => :fascicles, :action => :show, :id => fascicle.id %><br/>
+	<%end%>
+	<%end%>
+</p>
+      
+      
+      
+      
+  <b>Note generali:</b>
+  <%= @name.note_generali %>
+</p>
+</td>
+
+<td>      
+<p align=center>
+    <%= image_tag @name.photo.url(:small) %>
+</p>
+</td>
+</tr>
+</table>
+
+<table>
+	<th>Documenti</th>
+	<th>Numero</th>
+	<th>Data</th>
+	<th>Oggetto</th>
+	<tr>
+		<% @dossiers.each do |dossier|%>
+		<td><%= link_to "Documento", dossier, :controller => :dossiers, :action => :show, :id => dossier.id%></td>
+		<td><%= dossier.numero%></td>
+		<td width=90px><%= dossier.data%></td>
+		<td><%= dossier.oggetto%></td>
+		</tr>
+		<%end%>
+</table>
+
+
+<table>
+	<th>Gallery</th>
+	<tr>
+	<td>
+		<% @galleries.each do |gallery|%>
+		<%= link_to image_tag (gallery.photo.url(:thumb)), gallery%>
+		<%end%>	
+	</td>
+	</tr>
+</table>
+
+<table>
+	<th>Associazione</th>
+	<th>Sede</th>
+	<th>area</th>
+	
+	<tr>	
+	<% @unions.each do |union| %>
+		<td><%= link_to union.denominazione, union, :controller => :unions, :action => :show, :id => union.id %></td>
+		<td><%= union.sede%></td>
+	<% if union.area.nil? %>
+		     <td> Non definita </td>
+	<% else %>
+		<td><%= union.area.area_criminale%></td>
+	<%end%>		
+		</tr>
+	<%end%>
+</table>
+
+
+<table>
+	<th>Indagini</th>
+	<tr>
+	<td>
+      <ul>
+        <% @investigations.each do |investigation| %>
+        <li><%= link_to investigation.indagine, :controller => :investigations, :action => :show, :id => investigation.id %>
+		- Reparto: 
+		<b><%=investigation.reparto%></b>
+	
+	</li>
+        <% end %>
+      </ul>
+	</td>
+	</tr>
+</table>
+
+
+
+<%= link_to 'Edit', edit_name_path(@name) %> |
+<%= link_to 'Back', names_path %>

@@ -1,0 +1,77 @@
+<%= form_for(@dossier, :html => { :multipart => true }) do |f| %>
+  <% if @dossier.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dossier.errors.count, "error") %> prohibited this dossier from being saved:</h2>
+
+      <ul>
+      <% @dossier.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<table>
+<td>
+  <div class="field">
+<%= f.file_field :documento %>
+  </div>
+
+  <div class="field">
+    <%= f.label :numero %><br />
+    <%= f.text_field :numero %>
+  </div>
+  <div class="field">
+    <%= f.label :data %><br />
+    <%= f.date_select :data %>
+  </div>
+  <div class="field">
+    <%= f.label :oggetto %><br />
+    <%= f.text_area :oggetto %>
+  </div>
+  <div class="field">
+    <%= f.label :testo %><br />
+    <%= f.text_area :testo %>
+  </div>
+ </td>
+ <td>
+  
+  		Name:<br/>
+		<div style="width:400px;height:400px;overflow-y: scroll; border:1px solid black;">
+			<table border="3">
+					<tr>
+					<td>
+				        <% @names.each do |name|  %>
+				          <%= check_box_tag "dossier[name_ids][]", name.id, @dossier.names.include?(name) %>
+				          <%= name.cognome_nome %>
+						  <%= name.luogo_nascita %>
+					      <%= name.data_nascita %> 
+							<br/>	
+				       <%end%>
+				 </td>
+				</tr>
+			</table>
+		</div>
+		
+		Associazione:<br/>
+<div style="width:400px;height:400px;overflow-y: scroll; border:1px solid black;">
+	<table border="3">
+		<tr>
+		<td>
+	<% @unions.each do |union|%>
+	<%= check_box_tag "dossier[union_ids][]", union.id, @dossier.unions.include?(union) %>
+				          <%= union.denominazione %>
+						
+							<br/>	
+				       <%end%>
+				 </td>
+				</tr>
+			</table>
+		</div>
+  </td>
+  </table>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

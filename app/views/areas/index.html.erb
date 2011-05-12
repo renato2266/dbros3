@@ -1,0 +1,33 @@
+<h1>Lista area</h1>
+
+<table>
+  <tr>
+    <th>Area criminale</th>
+    <th>Note area</th>
+    <th>Ambit</th>
+    <th>Edit</th>
+
+  </tr>
+
+<% @areas.each do |area| %>
+  <tr>
+    <td><%= area.area_criminale %></td>
+    <td><%= area.note_area %></td>
+    
+    <td>
+	<% if area.ambit.nil? %>
+  	<% else %>
+		<%= area.ambit.ambito_criminale %>
+    </td>
+	<%end%>
+    
+    <td><%= link_to 'Show', area %>
+    <%= link_to 'Edit', edit_area_path(area) %>
+    <%= link_to 'Destroy', area, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Area', new_area_path %>

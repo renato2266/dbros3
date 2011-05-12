@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  Associazione criminale:
+  <b><%=h @association.associazione_criminale %>  </b>
+
+</p>
+<p>
+  Area :
+  <% if @area.nil? %>
+    Nil!
+  <% else %>
+    <b> <%=h @area.area_criminale %></b>
+  <%end%>
+</p>
+
+<p>
+  Note associazione:
+  <b><%=h @association.note_associazione %>  </b>
+</p>
+
+<p>
+	<% if @fascicles.nil? %>
+      Nil!
+    <% else %>
+
+	<% @fascicles.each do |fascicle| %>
+	Numero fascicolo:
+      <%= link_to fascicle.numero, :controller => :fascicles, :action => :show, :id => fascicle.id %><br/>
+	<%end%>
+	<%end%>
+</p>
+
+
+<b>Elenco soggetti</b>
+<ul>
+    <% @names.each do |name| %>
+      <li><%= link_to name.cognome_nome, :controller => :names, :action => :show, :id => name.id %></li>
+    <% end %>
+  </ul>
+
+
+<table>
+	<th>Documenti</th>
+	<th>Numero</th>
+	<th>Data</th>
+	<th>Oggetto</th>
+	<tr>
+		<% @dossiers.each do |dossier|%>
+		<td><%= link_to "Documento", dossier, :controller => :dossiers, :action => :show, :id => dossier.id%></td>
+		<td><%= dossier.numero%></td>
+		<td width=90px><%= dossier.data%></td>
+		<td><%= dossier.oggetto%></td>
+		</tr>
+		<%end%>
+	</table>
+
+<%= link_to 'Edit', edit_association_path(@association) %> |
+<%= link_to 'Back', associations_path %>

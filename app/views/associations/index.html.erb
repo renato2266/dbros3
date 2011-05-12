@@ -1,0 +1,34 @@
+<h1>Lista associazioni criminali</h1>
+
+<table>
+  <tr>
+    <th>Associazione criminale</th>
+    <th>Note associazione</th>
+    <th>Area</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @associations.each do |association| %>
+  <tr>
+    <td><%= association.associazione_criminale %></td>
+    <td><%= association.note_associazione %></td>
+    
+    <td>
+	<% if association.area.nil? %>
+  	<% else %>
+		<%=association.area.area_criminale %>
+    </td>
+	<%end%>
+	
+    <td><%= link_to 'Show', association %></td>
+    <td><%= link_to 'Edit', edit_association_path(association) %></td>
+    <td><%= link_to 'Destroy', association, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Association', new_association_path %>

@@ -1,0 +1,32 @@
+<%= form_for(@area) do |f| %>
+  <% if @area.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@area.errors.count, "error") %> prohibited this area from being saved:</h2>
+
+      <ul>
+      <% @area.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :area_criminale %><br />
+    <%= f.text_field :area_criminale %>
+  </div>
+  <div class="field">
+    <%= f.label :note_area %><br />
+    <%= f.text_area :note_area %>
+  </div>
+  <div class="field">
+        <p>
+        <%= f.label :ambit_id %><br />
+        <%= f.collection_select :ambit_id, Ambit.find(:all, :order =>'ambito_criminale ASC'), :id, :ambito_criminale, :include_blank=>true%>
+        <%= link_to 'New' , new_ambit_path %>
+      </p>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

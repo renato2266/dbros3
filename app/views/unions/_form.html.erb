@@ -1,0 +1,44 @@
+<%= form_for(@union) do |f| %>
+  <% if @union.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@union.errors.count, "error") %> prohibited this union from being saved:</h2>
+
+      <ul>
+      <% @union.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :denominazione %><br />
+    <%= f.text_field :denominazione %>
+  </div>
+  <div class="field">
+    <%= f.label :sede %><br />
+    <%= f.text_field :sede %>
+  </div>
+  <div class="field">
+    <%= f.label :descrizione %><br />
+    <%= f.text_area :descrizione %>
+  </div>
+  
+  <p>
+	<%= f.label :names %><br />
+	<%= f.collection_select :name_ids, @names, :id, :cognome_nome, {}, :multiple => true%>
+ </p>
+  
+  
+  <div class="field">
+    <% if @areas.nil?
+			puts "nil"
+	else %>
+	        <%= f.label :area_id %><br />
+	        <%= f.collection_select :area_id, @areas, :id, :area_criminale, :include_blank=>true%>
+	<%end%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

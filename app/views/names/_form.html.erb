@@ -1,0 +1,131 @@
+<%= form_for(@name, :html => { :multipart => true }) do |f| %>
+  <% if @name.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@name.errors.count, "error") %> prohibited this name from being saved:</h2>
+
+      <ul>
+      <% @name.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<table>
+<td>
+  <div class="field">
+    <%= f.label :cognome_nome %><br />
+    <%= f.text_field :cognome_nome %>
+  </div>
+  <div class="field">
+    <%= f.label :luogo_nascita %><br />
+    <%= f.text_field :luogo_nascita %>
+  </div>
+  <div class="field">
+    <%= f.label :data_nascita %><br />
+    <%= f.date_select :data_nascita, :include_blank => true, :start_year => Time.now.year , :end_year=> Time.now.year - 80, :use_month_numbers => true  %>
+  </div>
+  <div class="field">
+    <%= f.label :cod_fiscale %><br />
+    <%= f.text_field :cod_fiscale %>
+  </div>
+  <div class="field">
+    <%= f.label :residenza %><br />
+    <%= f.text_field :residenza %>
+  </div>
+  <div class="field">
+    <%= f.label :via %><br />
+    <%= f.text_field :via %>
+  </div>
+  <div class="field">
+    <%= f.label :domicilio %><br />
+    <%= f.text_field :domicilio %>
+  </div>
+  <div class="field">
+    <%= f.label :cittadinanza %><br />
+    <%= f.text_field :cittadinanza %>
+  </div>
+  <div class="field">
+    <%= f.label :professione %><br />
+    <%= f.text_field :professione %>
+  </div>
+  <div class="field">
+    <%= f.label :soprannome %><br />
+    <%= f.text_field :soprannome %>
+  </div>
+  <div class="field">
+    <%= f.label :alias %><br />
+    <%= f.text_field :alias %>
+  </div>
+  <div class="field">
+    <%= f.label :note_generali %><br />
+    <%= f.text_field :note_generali %>
+  </div>
+  
+  <div class="field">
+     <% if @associations.nil?
+			puts "nil"
+	else %>
+	        <%= f.label :associations_id %><br />
+	        <%= f.collection_select :association_id, @associations, :id, :associazione_criminale, :include_blank=>true%>
+	<%end%>
+  </div>
+  
+  <div class="field">
+    <% if @ambits.nil?
+			puts "nil"
+	else %>
+	        <%= f.label :ambit_id %><br />
+	        <%= f.collection_select :ambit_id, @ambits, :id, :ambito_criminale, :include_blank=>true%>
+	<%end%>
+	
+  </div>
+  
+  <div class="field">
+    <% if @areas.nil?
+			puts "nil"
+	else %>
+	        <%= f.label :area_id %><br />
+	        <%= f.collection_select :area_id, @areas, :id, :area_criminale, :include_blank=>true%>
+	<%end%>
+  </div>
+</td>
+   
+<td>
+  <div class="field">
+    Fotografia:<br/>
+        <%= f.file_field :photo %>
+  </div>
+ 
+
+	<% if @unions.nil?
+		puts "nil"
+	else %>
+	        <%= f.label "Associazione" %><br />
+	        <%= f.collection_select :union_ids, @unions, :id, :denominazione, :include_blank=>true%>
+	<%end%>
+
+</td>
+
+ <td>
+<% if @investigations.nil?
+		puts "nil"
+	else %>
+	Indagini:<br/>
+        <% @investigations.each do |investigation|  %>
+          <%= check_box_tag "name[investigation_ids][]", investigation.id, @name.investigations.include?(investigation) %>
+          <%= investigation.indagine %>
+			- Reparto: <b><%=investigation.reparto%></b><br/>
+        <%end%>
+<%end%>
+      </td>
+
+
+</table>
+  
+  
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

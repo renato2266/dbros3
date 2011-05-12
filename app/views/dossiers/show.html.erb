@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<%= link_to "Visualizza documento", @dossier.documento.url%>
+</p>
+
+<p>
+  <b>Numero:</b>
+  <%= @dossier.numero %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @dossier.data %>
+</p>
+
+<b>Elenco soggetti</b>
+<ul>
+    <% @names.each do |name| %>
+      <li><%= link_to name.cognome_nome, :controller => :names, :action => :show, :id => name.id %></li>
+    <% end %>
+  </ul>
+  
+  <b>Associazioni</b>
+	<ul>
+	    <% @unions.each do |union| %>
+	      <li><%= link_to union.denominazione, :controller => :unions, :action => :show, :id => union.id %></li>
+	    <% end %>
+	  </ul>
+
+<p>
+  <b>Oggetto:</b>
+  <%= @dossier.oggetto %>
+</p>
+
+<p>
+  <b>Testo:</b>
+  <%= @dossier.testo %>
+</p>
+
+
+<%= link_to 'Edit', edit_dossier_path(@dossier) %> |
+<%= link_to 'Back', dossiers_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  denominazione: MyString
+  sede: MyString
+  descrizione: MyText
+  area_id: 1
+
+two:
+  denominazione: MyString
+  sede: MyString
+  descrizione: MyText
+  area_id: 1

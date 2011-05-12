@@ -1,0 +1,27 @@
+<h1>Lista documenti</h1>
+
+<table>
+  <tr>
+    <th><%= sortable "data" %></th>
+    <th><%= sortable "numero" %></th>
+    <th><%= sortable "oggetto" %></th>
+    <th>Edit</th>
+
+  </tr>
+
+<% @dossiers.each do |dossier| %>
+  <tr>
+  	<td><%= dossier.data %></td>
+    <td><%= dossier.numero %></td>  
+    <td><%= dossier.oggetto %></td>
+
+    <td><%= link_to 'Show', dossier %>
+    <%= link_to 'Edit', edit_dossier_path(dossier) %>
+    <%= link_to 'Destroy', dossier, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dossier', new_dossier_path %>

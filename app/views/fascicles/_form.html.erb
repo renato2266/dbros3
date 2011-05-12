@@ -1,0 +1,56 @@
+<%= form_for(@fascicle) do |f| %>
+  <% if @fascicle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fascicle.errors.count, "error") %> prohibited this fascicle from being saved:</h2>
+
+      <ul>
+      <% @fascicle.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :numero %><br />
+    <%= f.text_field :numero %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_area :note %>
+  </div>
+  
+  <div class="field">
+	<% if @names.nil?
+		puts "nil"
+	else %>
+	<%= f.label :names %><br />
+	<%= f.collection_select :name_ids, @names, :id, :cognome_nome, {}, :multiple => true%>
+	<%end%>
+ </div>
+ 
+<div class="field">
+	<% if @unions.nil?
+		puts "nil"
+	else %>
+	<%= f.label :associazioni %><br />
+	<%= f.collection_select :union_ids, @unions, :id, :denominazione, {}, :multiple => true%>
+	<%end%>
+ </div>
+ 
+<div class="field">
+	<% if @associations.nil?
+		puts "nil"
+	else %>
+	<%= f.label :associations %><br />
+	<%= f.collection_select :association_ids, @associations, :id, :associazione_criminale, {}, :multiple => true%>
+	<%end%>
+ </div>
+  
+  
+  
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

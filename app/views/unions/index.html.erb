@@ -1,0 +1,34 @@
+<h1>Lista associazioni</h1>
+
+<%= form_tag unions_path, :method => 'get' do %>  
+  <p>  
+    <%= text_field_tag :search, params[:search] %>  
+    <%= submit_tag "Search", :name => nil %>  
+  </p>  
+<% end %>
+
+<table>
+  <tr>
+  	<th><%= sortable "denominazione" %></th>
+	<th><%= sortable "sede" %></th>
+    <th><%= sortable "area_id", "Area" %></th>
+    <th>Edit</th>
+  </tr>
+
+<% @unions.each do |union| %>
+  <tr>
+    <td><%= union.denominazione %></td>
+    <td><%= union.sede %></td>
+    <td><%= union.area.area_criminale %></td>
+    <td><%= link_to 'Show', union %>
+    <%= link_to 'Edit', edit_union_path(union) %>
+    <%= link_to 'Destroy', union, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Union', new_union_path %>
+
+<%= will_paginate @unions %>

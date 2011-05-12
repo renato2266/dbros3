@@ -1,0 +1,57 @@
+<h2><%= link_to 'Home', :controller => 'home', :action => 'index' %></h2>
+
+        
+
+	<%= link_to  image_tag ('/images/anagrafica_menu.png'), :controller => 'names', :action=> 'index'%> </br>
+
+
+	<%= link_to  image_tag ('/images/anagrafica_search_menu.png'), :controller => 'names', :action=> 'search' %>            
+          
+	<%= link_to  image_tag ('/images/gallery_menu.png'), :controller => 'galleries', :action=> 'index'%>
+        
+		<%= link_to  image_tag ('/images/documenti_menu.png'), :controller => 'dossiers', :action=> 'index'%>	
+
+
+		<%= link_to  image_tag ('/images/society_menu.png'), :controller => 'societies', :action=> 'index'%>
+
+		<%= link_to  image_tag ('/images/associazioni_menu.png'), :controller => 'unions', :action=> 'index'%>
+          
+		<%= link_to  image_tag ('/images/fascicoli_menu.png'), :controller => 'fascicles', :action=> 'index'%>     
+
+		<%= link_to  image_tag ('/images/veicoli_menu.png'), :controller => 'vehicles', :action=> 'index'%>
+
+		<%= link_to  image_tag ('/images/anagrafica_veicoli_menu.png'), :controller => 'name_vehicles', :action=> 'index'%>
+		
+       
+		<%= link_to  image_tag ('/images/indagini_menu.png'), :controller => 'investigations', :action=> 'index'%>        
+
+		<%= link_to  image_tag ('/images/intercettazioni_menu.png'), :controller => 'interceptions', :action=> 'index'%>
+
+
+
+<h2>Admin</h2>
+
+		<%= link_to  image_tag ('/images/ambito_menu.png'), :controller => 'ambits', :action=> 'index'%>
+
+		<%= link_to  image_tag ('/images/area_menu.png'), :controller => 'areas', :action=> 'index'%>
+
+		<%= link_to  image_tag ('/images/ass_crim_menu.png'), :controller => 'associations', :action=> 'index'%>
+
+		<%= link_to  image_tag ('/images/sign_up_menu.png'), :controller => 'signup', :action=> 'index'%>
+
+
+
+
+ 	<% if logged_in? %>
+    		<p>You are logged in as: <strong><%=h current_user.login %></strong>
+				<%= link_to 'Logout', logout_path %><br/></p>
+			Only admin:<br/>
+				<%= link_to 'Sign Up', signup_path %>
+			</p>
+  	<% else %>
+    		<p><strong>You are currently not logged in.</strong><br/>
+      			<%= link_to  image_tag ('/images/login_menu.png'), login_path %><br/></p>
+			Only admin user:<br/>
+      			<%= link_to 'Sign Up', signup_path %>
+    		</p>
+	<% end %>

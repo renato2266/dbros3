@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Names: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'home' %>
+</head>
+
+  <body>
+<div id="page">
+
+
+    
+<div id="content">
+
+<div id="user_nav" align=right>
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Logout user", destroy_user_session_path %>
+  <% else %>
+    <%= link_to "Login user", new_user_session_path %>
+  <% end %>
+  
+</div>
+
+<div id="user_nav" align=right>  
+    <% if admin_signed_in? %>
+    Signed in as <%= current_admin.email %>. Not you?
+    <%= link_to "Logout admin", destroy_admin_session_path %>
+  	<% else  %>
+    <%= link_to "Login admin", new_admin_session_path %>
+  	<% end %>
+  	<% if admin_signed_in? %>
+  	<%= link_to "crea utente", new_user_registration_path %> 
+  	<%end%>
+  
+  
+  
+</div>
+
+
+<%= yield  %>
+
+ </div>
+  </div>
+</body>
+</html>
+

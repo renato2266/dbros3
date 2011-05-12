@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  cognome_nome: MyString
+  luogo_nascita: MyString
+  data_nascita: 2011-03-17
+  cod_fiscale: MyString
+  residenza: MyString
+  via: MyString
+  domicilio: MyString
+  cittadinanza: MyString
+  professione: MyString
+  soprannome: MyString
+  alias: MyString
+  note_generali: MyString
+  association_id: 
+  ambit_id: 1
+  area_id: 1
+
+two:
+  cognome_nome: MyString
+  luogo_nascita: MyString
+  data_nascita: 2011-03-17
+  cod_fiscale: MyString
+  residenza: MyString
+  via: MyString
+  domicilio: MyString
+  cittadinanza: MyString
+  professione: MyString
+  soprannome: MyString
+  alias: MyString
+  note_generali: MyString
+  association_id: 
+  ambit_id: 1
+  area_id: 1

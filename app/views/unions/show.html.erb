@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Denominazione:</b>
+  <%= @union.denominazione %>
+</p>
+
+<p>
+  <b>Sede:</b>
+  <%= @union.sede %>
+</p>
+
+<p>
+  <b>Descrizione:</b>
+  <%= @union.descrizione %>
+</p>
+
+<p>
+  <b>Area:</b>
+  <%= @union.area.area_criminale %>
+</p>
+
+<b>Elenco soggetti</b>
+<ul>
+    <% @names.each do |name| %>
+      <li><%= link_to name.cognome_nome, :controller => :names, :action => :show, :id => name.id %></li>
+    <% end %>
+  </ul>
+  
+  <p>
+	<% if @fascicles.nil? %>
+      Nil!
+    <% else %>
+
+	<% @fascicles.each do |fascicle| %>
+	Numero fascicolo:
+      <%= link_to fascicle.numero, :controller => :fascicles, :action => :show, :id => fascicle.id %><br/>
+	<%end%>
+	<%end%>
+</p>
+
+<table>
+	<th>Documenti</th>
+	<th>Numero</th>
+	<th>Data</th>
+	<th>Oggetto</th>
+	<tr>
+		<% @dossiers.each do |dossier|%>
+		<td><%= link_to "Documento", dossier, :controller => :dossiers, :action => :show, :id => dossier.id%></td>
+		<td><%= dossier.numero%></td>
+		<td width=90px><%= dossier.data%></td>
+		<td><%= dossier.oggetto%></td>
+		</tr>
+		<%end%>
+	</table>
+
+
+<%= link_to 'Edit', edit_union_path(@union) %> |
+<%= link_to 'Back', unions_path %>

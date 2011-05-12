@@ -1,0 +1,30 @@
+<%= form_for(@association) do |f| %>
+  <% if @association.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@association.errors.count, "error") %> prohibited this association from being saved:</h2>
+
+      <ul>
+      <% @association.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :associazione_criminale %><br />
+    <%= f.text_field :associazione_criminale %>
+  </div>
+  <div class="field">
+    <%= f.label :note_associazione %><br />
+    <%= f.text_area :note_associazione %>
+  </div>
+  <div class="field">
+    <%= f.label :area_id %><br />
+        <%= f.collection_select :area_id, Area.find(:all, :order =>'area_criminale ASC'), :id, :area_criminale, :include_blank=>true%>
+        <%= link_to 'New' , new_area_path %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
