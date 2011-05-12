@@ -136,9 +136,9 @@ class NamesController < ApplicationController
       logger.debug "data = #{data}"
     end
 
-    logger.debug "condizioni #{condizioni}"
+    #logger.debug "condizioni #{condizioni}"
 
-    @names = Name.where(condizioni.join("AND"), valori)
+    @names = Name.where(condizioni.join("AND"), valori).paginate(:per_page => 3, :page => params[:page])
   end
 
   private
