@@ -1,0 +1,41 @@
+<h1>Listing societies</h1>
+
+<table>
+  <tr>
+    <th>Denominazione</th>
+    <th>Forma giuridica</th>
+    <th>Sede</th>
+    <th>Altre sedi</th>
+    <th>Cf pi</th>
+    <th>Descrizione</th>
+    <th>Stato</th>
+    <th>Agenzia mandataria</th>
+    <th>Data inizio</th>
+    <th>Data fine</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @societies.each do |society| %>
+  <tr>
+    <td><%= society.denominazione %></td>
+    <td><%= society.forma_giuridica %></td>
+    <td><%= society.sede %></td>
+    <td><%= society.altre_sedi %></td>
+    <td><%= society.cf_pi %></td>
+    <td><%= society.descrizione %></td>
+    <td><%= society.stato %></td>
+    <td><%= society.agenzia_mandataria %></td>
+    <td><%= society.data_inizio %></td>
+    <td><%= society.data_fine %></td>
+    <td><%= link_to 'Show', society %></td>
+    <td><%= link_to 'Edit', edit_society_path(society) %></td>
+    <td><%= link_to 'Destroy', society, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Society', new_society_path %>

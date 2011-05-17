@@ -20,6 +20,7 @@ class DossiersController < ApplicationController
     @dossier = Dossier.find(params[:id])
     @names = @dossier.names
    	@unions = @dossier.unions 
+    @societies = @dossier.societies
 
     respond_to do |format|
       format.html # show.html.erb
@@ -30,9 +31,11 @@ class DossiersController < ApplicationController
   # GET /dossiers/new
   # GET /dossiers/new.xml
   def new
-    @dossier = Dossier.new
+     @dossier = Dossier.new
      @names = Name.order("cognome_nome ASC")
      @unions = Union.order("denominazione ASC")
+     @societies = Society.order("denominazione ASC")
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,6 +48,7 @@ class DossiersController < ApplicationController
     @dossier = Dossier.find(params[:id])
     @names = Name.order("cognome_nome ASC")
      @unions = Union.order("denominazione ASC")
+     @societies = Society.order("denominazione ASC")
   end
 
   # POST /dossiers

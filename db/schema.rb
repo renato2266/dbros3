@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406193833) do
+ActiveRecord::Schema.define(:version => 20110516192607) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -323,15 +323,15 @@ ActiveRecord::Schema.define(:version => 20110406193833) do
     t.string   "denominazione"
     t.string   "forma_giuridica"
     t.string   "sede"
+    t.text     "altre_sedi"
     t.string   "cf_pi"
     t.text     "descrizione"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "stato",              :limit => 50
+    t.string   "stato"
+    t.string   "agenzia_mandataria"
     t.date     "data_inizio"
     t.date     "data_fine"
-    t.text     "altre_sedi"
-    t.string   "agenzia_mandataria"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "unions", :force => true do |t|

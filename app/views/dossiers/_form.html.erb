@@ -33,10 +33,8 @@
     <%= f.label :testo %><br />
     <%= f.text_area :testo %>
   </div>
- </td>
- <td>
-  
-  		Name:<br/>
+
+ 		Name:<br/>
 		<div style="width:400px;height:400px;overflow-y: scroll; border:1px solid black;">
 			<table border="3">
 					<tr>
@@ -52,6 +50,9 @@
 				</tr>
 			</table>
 		</div>
+</td>
+
+<td>
 		
 		Associazione:<br/>
 <div style="width:400px;height:400px;overflow-y: scroll; border:1px solid black;">
@@ -67,7 +68,44 @@
 				 </td>
 				</tr>
 			</table>
+    </div>
+
+
+Società:<br/>
+<div style="width:400px;height:100px;overflow-y: scroll; border:1px solid black;">
+	<table border="3">
+		<tr>
+		<td>
+	<% @societies.each do |society|%>
+	<%= check_box_tag "dossier[society_ids][]", society.id, @dossier.societies.include?(society) %>
+				          <%= society.denominazione %>
+						
+							<br/>	
+				       <%end%>
+				 </td>
+				</tr>
+			</table>
 		</div>
+
+Associazione:<br/>
+<div style="width:400px;height:400px;overflow-y: scroll; border:1px solid black;">
+	<table border="3">
+		<tr>
+		<td>
+	<% @unions.each do |union|%>
+	<%= check_box_tag "dossier[union_ids][]", union.id, @dossier.unions.include?(union) %>
+				          <%= union.denominazione %>
+						
+							<br/>	
+				       <%end%>
+				 </td>
+				</tr>
+			</table>
+		</div>
+
+
+
+
   </td>
   </table>
   

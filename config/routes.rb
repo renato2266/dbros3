@@ -1,5 +1,7 @@
 Dbros::Application.routes.draw do
   	
+  resources :societies
+
   resources :investigations
 
   resources :galleries

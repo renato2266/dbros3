@@ -3,15 +3,14 @@ class Gallery < ActiveRecord::Base
   has_and_belongs_to_many :names
   
   has_attached_file :photo, :styles => {:large => "600x600>",
-										:small => "300x300>",
-                                 		:thumb => "100x100>" },
+										:small => "300x300>",	:thumb => "100x100>" },
      :url  => "/assets/galleries/:id/:style/:basename.:extension",
      :path => ":rails_root/public/assets/galleries/:id/:style/:basename.:extension"
-     
+  
    validates_attachment_content_type :photo, 
      :content_type => ['image/jpeg', 'image/pjpeg', 
-                                       'image/jpg', 'image/png']
-                                       
+                        'image/jpg', 'image/png']
+  
   validates_attachment_presence :photo
   
   

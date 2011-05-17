@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Denominazione:</b>
+  <%= @society.denominazione %>
+</p>
+
+<p>
+  <b>Forma giuridica:</b>
+  <%= @society.forma_giuridica %>
+</p>
+
+<p>
+  <b>Sede:</b>
+  <%= @society.sede %>
+</p>
+
+<p>
+  <b>Altre sedi:</b>
+  <%= @society.altre_sedi %>
+</p>
+
+<p>
+  <b>Cf pi:</b>
+  <%= @society.cf_pi %>
+</p>
+
+<p>
+  <b>Descrizione:</b>
+  <%= @society.descrizione %>
+</p>
+
+<p>
+  <b>Stato:</b>
+  <%= @society.stato %>
+</p>
+
+<p>
+  <b>Agenzia mandataria:</b>
+  <%= @society.agenzia_mandataria %>
+</p>
+
+<p>
+  <b>Data inizio:</b>
+  <%= @society.data_inizio %>
+</p>
+
+<p>
+  <b>Data fine:</b>
+  <%= @society.data_fine %>
+</p>
+
+
+<%= link_to 'Edit', edit_society_path(@society) %> |
+<%= link_to 'Back', societies_path %>

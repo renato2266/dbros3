@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  denominazione: MyString
+  forma_giuridica: MyString
+  sede: MyString
+  altre_sedi: MyText
+  cf_pi: MyString
+  descrizione: MyText
+  stato: MyString
+  agenzia_mandataria: MyString
+  data_inizio: 2011-05-16
+  data_fine: 2011-05-16
+
+two:
+  denominazione: MyString
+  forma_giuridica: MyString
+  sede: MyString
+  altre_sedi: MyText
+  cf_pi: MyString
+  descrizione: MyText
+  stato: MyString
+  agenzia_mandataria: MyString
+  data_inizio: 2011-05-16
+  data_fine: 2011-05-16
