@@ -23,7 +23,8 @@
 
 <td>
 <p align=center>
-    <%= link_to image_tag (@gallery.photo.url(:large)), @gallery.photo.url(:original)%>
+    <%= link_to (image_tag @gallery.photo.url :large),  (@gallery.photo.url :original) %>
+
   </p>
 </td>
 </tr>

@@ -112,7 +112,7 @@ Area :
 
 <td>      
 <p align=center>
-    <%= image_tag @name.photo.url(:small) %>
+    <%=link_to (image_tag @name.photo.url :small),  (@name.photo.url :original) %>
 </p>
 </td>
 </tr>
@@ -139,7 +139,7 @@ Area :
 	<tr>
 	<td>
 		<% @galleries.each do |gallery|%>
-		<%= link_to image_tag (gallery.photo.url(:thumb)), gallery%>
+      <%= link_to (image_tag gallery.photo.url :thumb), :controller => :galleries, :action => :show, :id => gallery.id%>
 		<%end%>	
 	</td>
 	</tr>

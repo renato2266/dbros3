@@ -12,13 +12,13 @@
 <% @galleries.each do |gallery| %>
   <tr>
   <td width="15%"><%=h gallery.date %></td>
-    <td><%= link_to gallery.description, gallery %></td>
-    
-	<td width="15%"><p align=center><%= link_to image_tag (gallery.photo.url(:thumb)), gallery %></p></td>
+  <td><%= link_to gallery.description, gallery %></td>
+	<td width="15%"><p align=center><%= link_to (image_tag gallery.photo.url :thumb) %></p></td>
 
-    <td width="15%"><p align=center ><%= link_to 'Show', gallery %>
+  <td width="15%"><p align=center ><%= link_to 'Show', gallery %>
     <%= link_to 'Edit', edit_gallery_path(gallery) %>
-    <%= link_to 'Destroy', gallery, :confirm => 'Are you sure?', :method => :delete %></p></td>
+    <%= link_to 'Destroy', gallery, :confirm => 'Are you sure?', :method => :delete %></p>
+  </td>
   </tr>
 <% end %>
 </table>
