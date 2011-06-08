@@ -84,3 +84,4 @@ pdf.table [	["Cognome e nome",    @name.cognome_nome,  	],
 
 
 
+

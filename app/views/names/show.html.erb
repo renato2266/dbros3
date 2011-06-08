@@ -63,28 +63,28 @@
 
 
 <p>
-  Association:
+  <b>Association:</b>
    <% if @association.nil? %>
-          Nil!
+          
         <% else %>
-          <b> <%=h @association.associazione_criminale %></b>
+         <%=h @association.associazione_criminale %>
         <%end%>
 </p>
 
 <p>
-  Ambito criminale :
+  <b>Ambito criminale :</b>
         <% if @ambit.nil? %>
-          Nil!
+          
         <% else %>
-          <b> <%=h @ambit.ambito_criminale %></b>
+          <%=h @ambit.ambito_criminale %>       
         <%end%>
 </p>
 
-Area :
+   <b>Area :</b>
         <% if @area.nil? %>
-          Nil!
+          
         <% else %>
-          <b> <%=h @area.area_criminale %></b>
+         <%=h @area.area_criminale %>
         <%end%>
       </p>
       
@@ -96,7 +96,7 @@ Area :
     <% else %>
 
 	<% @fascicles.each do |fascicle| %>
-	Numero fascicolo:
+    <b>Numero fascicolo:</b>
       <%= link_to fascicle.numero, :controller => :fascicles, :action => :show, :id => fascicle.id %><br/>
 	<%end%>
 	<%end%>
@@ -114,6 +114,9 @@ Area :
 <p align=center>
     <%=link_to (image_tag @name.photo.url :small),  (@name.photo.url :original) %>
 </p>
+
+<p align="center"> 	<%=link_to "Scheda personale PDF", name_path(@name, :pdf)%> </p>
+
 </td>
 </tr>
 </table>

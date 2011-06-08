@@ -33,7 +33,7 @@
     <% else %>
 
 	<% @fascicles.each do |fascicle| %>
-	Numero fascicolo:
+    <b>Numero fascicolo:</b>
       <%= link_to fascicle.numero, :controller => :fascicles, :action => :show, :id => fascicle.id %><br/>
 	<%end%>
 	<%end%>

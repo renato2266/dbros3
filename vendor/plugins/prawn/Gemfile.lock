@@ -1,0 +1,33 @@
+GIT
+  remote: https://github.com/sandal/pdf-inspector.git
+  revision: 0a1b458f45eb0d71268b0e3f8d051a9da2fb8359
+  specs:
+    pdf-inspector (1.0.0)
+      pdf-reader (>= 0.9.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    Ascii85 (1.0.1)
+    hoe (2.9.4)
+      rake (>= 0.8.7)
+    mocha (0.9.12)
+    pdf-reader (0.9.2)
+      Ascii85 (>= 0.9)
+    rake (0.9.1)
+    test-spec (0.10.0)
+    test-unit (1.2.3)
+      hoe (>= 1.5.1)
+    ttfunk (1.0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  mocha
+  pdf-inspector (~> 1.0.0)!
+  pdf-reader (~> 0.9.0)
+  rake
+  test-spec
+  test-unit (= 1.2.3)
+  ttfunk (~> 1.0.0)
