@@ -1,0 +1,59 @@
+<%= form_for(@name_society) do |f| %>
+  <% if @name_society.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@name_society.errors.count, "error") %> prohibited this name_society from being saved:</h2>
+
+      <ul>
+      <% @name_society.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+	<p>
+    <%= f.label :name_id %><br />
+    <%= f.collection_select :name_id, @names, :id, :cognome_nome, :include_blank=>true%>
+  </p>
+
+	<p>
+    <%= f.label :society_id %><br />
+    <%= f.collection_select :society_id, @societies, :id, :denominazione, :include_blank=>true%>
+  </p>
+
+  <p>
+    <%= f.label :carica %><br />
+	<%= f.select (:carica, [
+		['Accomandante', 'Accomandante'],
+		['Accomandatario', 'Accomandatario'],
+		['Amministratore', 'Amministratore'],
+		['Consigliere', 'Consigliere'],
+		['Dipendente', 'Dipendente'],
+		['Presidente', ' Presidente'],
+		['Socio', 'Socio'],
+		['Titolare', 'Titolare']
+										], :include_blank=>true ) %> 
+  </p>
+  <p>
+    <%= f.label :inizio_carica %><br />
+    <%= f.date_select :inizio_carica, :include_blank => true, :start_year => Time.now.year , :end_year=> Time.now.year - 40, :use_month_numbers => true  %>
+  </p>
+  <p>
+    <%= f.label :fine_carica %><br />
+    <%= f.date_select :fine_carica, :include_blank => true, :start_year => Time.now.year , :end_year=> Time.now.year - 40, :use_month_numbers => true  %>
+  </p>
+  <p>
+    <%= f.label :note %><br />
+    <%= f.text_area :note %>
+  </p>
+
+
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -10,6 +10,11 @@ has_and_belongs_to_many :fascicles
 has_and_belongs_to_many :galleries
 has_and_belongs_to_many :investigations
 
+
+  has_many :name_societies, :dependent => :destroy
+  has_many :societies, :through => :name_societies
+
+
   validates_uniqueness_of :cognome_nome, :case_sensitive => false, :message => ":  nome gia' presente!"
   validates_presence_of :cognome_nome, :message => ":  campo vuoto!"
 

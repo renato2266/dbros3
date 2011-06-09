@@ -31,6 +31,7 @@ class NamesController < ApplicationController
     @galleries = @name.galleries
     @investigations = @name.investigations
     @unions = @name.unions
+    @societies = @name.societies
 
 
     respond_to do |format|

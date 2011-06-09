@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+Nome:
+<% if @name.nil? %>
+  Nil!
+<% else %>
+  <b> <%= link_to @name.cognome_nome, @name%></b>
+<%end%>
+</p>
+
+<p>
+Soacietà:
+<% if @society.nil? %>
+  Nil!
+<% else %>
+  <b> <%= link_to @society.denominazione, @society%></b>
+<%end%>
+</p>
+
+<p>
+  Carica:
+  <b><%=h @name_society.carica %></b>
+</p>
+
+<p>
+  Inizio carica:
+  <b><%=h @name_society.inizio_carica %></b>
+</p>
+
+<p>
+  Fine carica:
+  <b><%=h @name_society.fine_carica %></b>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%=h @name_society.note %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_name_society_path(@name_society) %> |
+<%= link_to 'Back', name_societies_path %>

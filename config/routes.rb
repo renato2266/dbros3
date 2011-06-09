@@ -1,5 +1,7 @@
 Dbros::Application.routes.draw do
   	
+  resources :name_societies
+
   resources :societies
 
   resources :investigations

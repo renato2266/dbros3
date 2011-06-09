@@ -1,0 +1,33 @@
+<h1>Listing name & societies</h1>
+
+<table>
+  <tr>
+    <th>Society</th>
+	<th>Name</th>
+    <th>Carica</th>
+    <th>Inizio carica</th>
+    <th>Fine carica</th>
+    <th>Note</th>
+	<th>Edit</th>
+  </tr>
+
+<% @name_societies.each do |name_society| %>
+  <tr>
+	
+    <td><%= link_to name_society.society.denominazione, :controller => :societies, :action => :show, :id => name_society.society.id%></td>
+  	<td><%= link_to name_society.name.cognome_nome, :controller => :names, :action => :show, :id => name_society.name.id%></td>
+    <td><%=h name_society.carica %></td>
+    <td><%=h name_society.inizio_carica %></td>
+    <td><%=h name_society.fine_carica %></td>
+    <td><%=h name_society.note %></td>
+
+    <td><%= link_to 'Show', name_society %>
+    <%= link_to 'Edit', edit_name_society_path(name_society) %>
+    <%= link_to 'Destroy', name_society, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Name society', new_name_society_path %>
