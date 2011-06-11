@@ -139,8 +139,14 @@ class NamesController < ApplicationController
 
     #logger.debug "condizioni #{condizioni}"
 
-   @names = Name.where(condizioni.join("AND"), valori).joins(:ambit, :area, :association).paginate(:per_page => 3, :page => params[:page])
-  
+ #@names = Name.joins(:ambit).where(condizioni.join(" AND "), valori)
+
+ #
+  @names = Name.joins("LEFT JOIN ambits ON names.ambit_id=ambits.id 
+                      LEFT JOIN areas ON names.area_id=areas.id 
+                      LEFT JOIN associations ON names.association_id=associations.id").where(condizioni.join(" AND "), valori)
+
+
   end
 
   private

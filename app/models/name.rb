@@ -27,8 +27,10 @@ has_and_belongs_to_many :investigations
 def self.search(search)
   if search
     where('cognome_nome LIKE ? or luogo_nascita LIKE ? or data_nascita LIKE ? or residenza LIKE ? or cittadinanza LIKE ?
-          or ambits.ambito_criminale LIKE ? or areas.area_criminale LIKE ? or associations.associazione_criminale LIKE ?',
-          "%#{search}%","%#{search}%", "%#{search}%", "%#{search}%","%#{search}%","%#{search}%","%#{search}%", "%#{search}%").includes(:ambit, :area, :association)
+          or ambits.ambito_criminale LIKE ? or areas.area_criminale LIKE ? or associations.associazione_criminale LIKE ?
+          or unions.denominazione LIKE ?',
+          "%#{search}%","%#{search}%", "%#{search}%", "%#{search}%","%#{search}%","%#{search}%","%#{search}%", "%#{search}%",
+          "%#{search}%").includes(:ambit, :area, :association, :unions )
   else
     scoped
   end

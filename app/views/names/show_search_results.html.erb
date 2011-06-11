@@ -1,10 +1,61 @@
 <h1>Lista soggetti</h1>
     
       
-    <%= form_tag names_path, :method => 'get', :id => "names_search" do %>  
-      <p>  
-        <%= text_field_tag :search, params[:search] %>  
-        <%= submit_tag "Search", :name => nil %>  
-      </p>  
-     <div id="names"><%= render 'names' %></div>  
-    <% end %>  
+   <p align="right"><%= link_to 'New Name', new_name_path %></p>
+
+<table>
+  <tr>
+    <th>Cognome nome </th>
+    <th>Luogo nascita</th> 
+    <th>Data nascita</th> 
+    <th>Residenza" </th> 
+    <th>Cittadinanza</th>
+    <th>Associazione crim.</th>
+    <th>Ambito crim.</th>
+    <th>Area</th>
+    <th>Foto </th>
+    <th>Edit</th>
+  
+  </tr>
+
+<% @names.each do |name| %>
+  <tr>
+    <td><%= link_to name.cognome_nome, name %></td>
+    <td><%= name.luogo_nascita %></td>
+    <td><%= name.data_nascita %></td>
+    <td><%= name.residenza %></td>
+    <td><%= name.cittadinanza %></td>
+    
+    
+	<td>
+	<% if name.association.nil? %>
+  	<% else %>
+		<%=name.association.associazione_criminale %>
+    </td>
+	<%end%>
+	
+    <td>
+	<% if name.ambit.nil? %>
+  	<% else %>
+		<%=name.ambit.ambito_criminale %>
+    </td>
+	<%end%>
+    
+    <td>
+	<% if name.area.nil? %>
+  	<% else %>
+		<%=name.area.area_criminale %>
+    </td>
+	<%end%>
+    <td><%= image_tag name.photo.url(:thumb) %></td>
+        <td><%= link_to 'Show', name %>
+    <%= link_to 'Edit', edit_name_path(name) %>
+    <%= link_to 'Destroy', name, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+    
+    
+
+
+
