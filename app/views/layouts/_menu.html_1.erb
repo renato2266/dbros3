@@ -47,12 +47,29 @@
          
           <li>
             <h3>Area Admin</h3>
-            <ul class="links">
-            <li><%= link_to 'Users', :controller => 'users', :action=> 'index' %></li>  
-   
-            </ul>
-          </li> 
-          
+          	<ul class="links">
+	<h3> Login </h3>
+	<div>
+  	<% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Logout user", destroy_user_session_path %>
+  	<% else  %>
+    <%= link_to "Login user", new_user_session_path %>
+  	<% end %>
+  	
+  	<% if admin_signed_in? %>
+    Signed in as <%= current_admin.email %>. Not you?
+    <%= link_to "Logout admin", destroy_admin_session_path %>
+  	<% else  %>
+    <%= link_to "Login admin", new_admin_session_path %>
+  	<% end %>
+  	<% if admin_signed_in? %>
+  	<%= link_to "crea utente", new_user_registration_path %> 
+  	<%end%>
+  	
+	</div>
+			 
+	</ul>          
           
           
         </ul>

@@ -1,8 +1,10 @@
 class AmbitsController < ApplicationController
   # GET /ambits
   # GET /ambits.xml
-   before_filter :authenticate_admin!, :only => [:new, :edit, :destroy]
-  def index
+  # before_filter :authenticate_admin!, :only => [:new, :edit, :destroy]
+  before_filter :authenticate_admin!
+   
+   def index
     @ambits = Ambit.all
 
     respond_to do |format|

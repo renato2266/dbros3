@@ -15,6 +15,7 @@ gem 'prawnto'
 gem 'jquery-rails'
 gem "meta_where"
 gem "meta_search"
+#gem "cancan"
 
 # Use unicorn as the web server
 # gem 'unicorn'

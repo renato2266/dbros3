@@ -2,7 +2,8 @@ class AssociationsController < ApplicationController
   # GET /areas
   # GET /areas.xml
   
-	before_filter :authenticate_admin!, :only => [:new, :edit, :destroy]
+before_filter :authenticate_user!	
+
   def index
     @associations = Association.all
     

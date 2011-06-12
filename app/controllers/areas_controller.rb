@@ -1,8 +1,9 @@
 class AreasController < ApplicationController
   # GET /areas
   # GET /areas.xml
-  
-	before_filter :authenticate_admin!, :only => [:new, :edit, :destroy]
+before_filter :authenticate_admin!, :except => [:show, :index]
+
+
   def index
     @areas = Area.all
     

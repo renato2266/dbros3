@@ -1,5 +1,9 @@
 Dbros::Application.routes.draw do
-  	
+
+ 
+  devise_for :admins
+  #resources:admins
+
   resources :name_societies
 
   resources :societies
@@ -12,19 +16,18 @@ Dbros::Application.routes.draw do
 
   resources :dossiers
 
-  	resources :unions
+  resources :unions
 
-  	resources :associations
+  resources :associations
 
-  	resources :ambits
+  resources :ambits
 
-  	devise_for :admins
-  	devise_for :users
-  	devise_for :names
-  	
-  	
-	resources :users
- 	resources :areas
+ 	
+  devise_for :users
+  resources :users
+
+ 	
+  resources :areas
  	resources :names
  	
 
